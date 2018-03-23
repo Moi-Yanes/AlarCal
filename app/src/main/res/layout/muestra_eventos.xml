@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@color/grisFondo">
+
+    <LinearLayout
+        android:id="@+id/linearlout0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_weight="1.2"
+        android:weightSum="10"
+        android:background="@color/greenCalendar"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="?android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_navigate_before_black_36dp"
+                android:drawablePadding="-40dp"
+                android:text="Volver atrás"
+                android:textSize="11dp"
+                android:clickable="true"
+                android:onClick="ejecutaMain"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:weightSum="10">
+
+            <CheckBox
+                android:id="@+id/checbok_mostrar_repeticiones"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:text="Mostrar repeticiones"
+                android:theme="@style/MyCheckBox"
+                android:checked="true"
+                android:onClick="muestraEventosRepetidos"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearlout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_weight="4.4"
+        android:weightSum="10"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp"
+        android:layout_marginBottom="-6dp">
+
+        <TextView
+            android:id="@+id/titulo_prox_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Próximos eventos"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/scrollView_prox_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7.5">
+
+            <LinearLayout
+                android:id="@+id/scrollView_layout_prox_eventos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_weight="4.4"
+        android:weightSum="10"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/titulo_anteriores_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Eventos antiguos"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="8dp"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+
+        <ScrollView
+            android:id="@+id/scrollView_anteriores_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7.5">
+
+            <LinearLayout
+                android:id="@+id/scrollView_layout_anteriores_eventos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

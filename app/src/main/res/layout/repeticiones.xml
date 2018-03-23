@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:id="@+id/linearlout0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:weightSum="10"
+        android:background="@color/greenCalendar"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:background="?android:attr/selectableItemBackground"
+            android:backgroundTint="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_navigate_before_black_36dp"
+            android:drawablePadding="-40dp"
+            android:text="Volver atrás"
+            android:textSize="11dp"
+            android:clickable="true"
+            android:onClick="ejecutaActivity"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_weight="9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Evento de una sola vez"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Diariamente"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Dias de semana (Lun-Vie)"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Semanalmente"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Cada dos semanas"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Mensualmente (misma fecha)"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:weightSum="10"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="0dp">
+
+                <TextView
+                    android:id="@+id/textview_radio_button6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:textColor="@android:color/black"
+                    android:text="Anualmente"/>
+
+                <RadioButton
+                    android:id="@+id/radio_button6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

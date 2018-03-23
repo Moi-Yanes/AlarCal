@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/greenCalendar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:foregroundGravity="center_vertical">
+
+            <Button
+                android:id="@+id/btn_guardar"
+                android:layout_width="131dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="0dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_vblanca"
+                android:drawablePadding="8dp"
+                android:text="Guardar"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:onClick="GuardaEvento"/>
+
+            <Button
+                android:id="@+id/btn_cancelar"
+                android:layout_width="131dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/ic_xblanca"
+                android:text="Cancelar"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:onClick="cancelaCreaEvento"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_marginTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textinputlayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:theme="@style/Theme.AppCompat.Light"
+                app:errorEnabled="true"
+                app:hintEnabled="false"
+                app:errorTextAppearance="@style/TextAppearance.Design.Error">
+
+                <EditText
+                    android:id="@+id/nombre_evento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="Nombre del evento" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <!-- Fecha y hora de evento -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout2"
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="0dp"
+                    android:theme="@style/Theme.AppCompat.Light"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false"
+                    app:errorTextAppearance="@style/TextAppearance.Design.Error">
+
+                    <EditText
+                        android:id="@+id/fecha_evento"
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Fecha inicio"
+                        android:inputType="text"
+                        android:focusableInTouchMode="false"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout3"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="135dp"
+                    android:layout_marginTop="0dp"
+                    android:theme="@style/Theme.AppCompat.Light"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false"
+                    app:errorTextAppearance="@style/TextAppearance.Design.Error">
+
+                    <EditText
+                        android:id="@+id/hora_evento"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:ems="10"
+                        android:hint="Hora inicio"
+                        android:inputType="text"
+                        android:focusableInTouchMode="false"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <ImageButton
+                    android:id="@+id/image_fecha_evento"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="11dp"
+                    android:layout_toStartOf="@+id/image_hora_evento"
+                    android:background="@color/greenCalendar"
+                    android:src="@drawable/ic_event_white"
+                    tools:ignore="ContentDescription"
+                    android:clickable="true"
+                    android:onClick="obtenerFecha"/>
+
+                <ImageButton
+                    android:id="@+id/image_hora_evento"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="7dp"
+                    android:background="@color/greenCalendar"
+                    android:src="@drawable/ic_access_time_white"
+                    tools:ignore="ContentDescription"
+                    android:clickable="true"
+                    android:onClick="obtenerHora"/>
+            </RelativeLayout>
+
+
+            <!-- Fecha y hora de aviso de evento -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginTop="0dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout4"
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="0dp"
+                    android:theme="@style/Theme.AppCompat.Light"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false"
+                    app:errorTextAppearance="@style/TextAppearance.Design.Error">
+
+                    <EditText
+                        android:id="@+id/fecha_fin"
+                        android:layout_width="115dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Fecha fin"
+                        android:inputType="text"
+                        android:focusableInTouchMode="false"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout5"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="135dp"
+                    android:layout_marginTop="0dp"
+                    android:theme="@style/Theme.AppCompat.Light"
+                    app:errorEnabled="true"
+                    app:hintEnabled="false"
+                    app:errorTextAppearance="@style/TextAppearance.Design.Error">
+
+                    <EditText
+                        android:id="@+id/hora_fin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="Hora fin"
+                        android:inputType="text"
+                        android:focusableInTouchMode="false"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/image_fecha_aviso"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="11dp"
+                    android:layout_toStartOf="@+id/image_hora_aviso"
+                    android:background="@color/greenCalendar"
+                    android:src="@drawable/ic_event_white"
+                    tools:ignore="ContentDescription"
+                    android:clickable="true"
+                    android:onClick="obtenerFecha"/>
+
+                <ImageButton
+                    android:id="@+id/image_hora_aviso"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="7dp"
+                    android:background="@color/greenCalendar"
+                    android:src="@drawable/ic_access_time_white"
+                    tools:ignore="ContentDescription"
+                    android:clickable="true"
+                    android:onClick="obtenerHora"/>
+            </RelativeLayout>
+
+
+            <!-- separador -->
+            <TextView
+                android:layout_height="2dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/black"/>
+
+
+            <!-- Repeticiones -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="107dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="Repeticiones"
+                    android:textSize="18dp"
+                    android:paddingStart="2dp"/>
+
+                <EditText
+                    android:id="@+id/editTextEleccion"
+                    android:layout_width="190dp"
+                    android:layout_height="30dp"
+                    android:layout_alignTop="@+id/textView"
+                    android:layout_toStartOf="@+id/repeticiones"
+                    android:background="@android:color/transparent"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp"
+                    android:text="Evento de una sola vez"
+                    android:editable="false"
+                    android:clickable="true"
+                    android:onClick="ejecutaActivityRepeticiones"/>
+
+                <Button
+                    android:id="@+id/repeticiones"
+                    android:layout_width="40dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_keyboard_arrow_right_black_36dp"
+                    android:onClick="ejecutaActivityRepeticiones"/>
+            </RelativeLayout>
+
+
+            <!-- Recordatorios -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/textViewRecordatorio"
+                    android:layout_width="115dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="Recordatorios"
+                    android:textSize="18dp"
+                    android:paddingStart="2dp"/>
+
+                <EditText
+                    android:id="@+id/editTextEleccionRecordatorio"
+                    android:layout_width="190dp"
+                    android:layout_height="30dp"
+                    android:layout_alignTop="@+id/textViewRecordatorio"
+                    android:layout_toStartOf="@+id/recordatorio"
+                    android:background="@android:color/transparent"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp"
+                    android:text="Misma fecha que el evento"
+                    android:editable="false"
+                    android:clickable="true"
+                    android:onClick="ejecutaActivityRecordatorios"/>
+
+                <Button
+                    android:id="@+id/recordatorio"
+                    android:layout_width="40dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:backgroundTint="@android:color/transparent"
+                    android:drawableLeft="@drawable/ic_keyboard_arrow_right_black_36dp"
+                    android:onClick="ejecutaActivityRecordatorios"/>
+            </RelativeLayout>
+
+
+            <!-- separador -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/black"/>
+
+
+            <!-- Descripcion -->
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Descripción"
+                android:theme="@style/Theme.AppCompat.Light"/>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

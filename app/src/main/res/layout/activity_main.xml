@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="moi.com.apps.alarcal.MainActivity">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:background="@color/greenCalendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textview_dia"
+            android:layout_width="32dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="22.5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_año"
+            android:layout_width="92dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="49dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/constraintLayout2">
+
+            <CalendarView
+                android:id="@+id/calendario"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:firstDayOfWeek="2"
+                android:theme="@style/Theme.AppCompat.Light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintLayout2" />
+
+
+            <View
+                android:id="@+id/separador1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendario" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separador1"
+                android:background="@color/grisFondo">
+
+                <TextView
+                    android:id="@+id/textofecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"/>
+
+                <Button
+                    android:id="@+id/add_events"
+                    android:layout_width="65dp"
+                    android:layout_height="40dp"
+                    android:layout_toStartOf="@+id/prox_events"
+                    android:layout_alignTop="@+id/prox_events"
+                    android:layout_marginEnd="15dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:backgroundTint="@color/grisFondo"
+                    android:src="@drawable/ic_xnegra"
+                    android:text="Añadir\nEvento"
+                    android:textSize="12dp"
+                    android:textColor="@color/greenCalendar"
+                    android:visibility="invisible"
+                    android:onClick="ejecutaActivityCreaEvento"/>
+
+                <Button
+                    android:id="@+id/prox_events"
+                    android:layout_width="65dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="12dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:backgroundTint="@color/grisFondo"
+                    android:onClick="ejecutaActivityProximosEventos"
+                    android:text="Próximos\nEventos"
+                    android:textColor="@color/greenCalendar"
+                    android:textSize="12dp"
+                    android:visibility="invisible" />
+            </RelativeLayout>
+
+
+            <ScrollView
+                android:id="@+id/scrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="16dp"
+                android:layout_marginTop="350dp"
+                android:layout_marginBottom="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:id="@+id/grideventos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="16dp">
+
+
+                    <LinearLayout
+                        android:id="@+id/grideventos2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp">
+
+                        <Button
+                            android:id="@+id/add_events2"
+                            android:layout_width="65dp"
+                            android:layout_height="40dp"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:backgroundTint="@color/grisFondo"
+                            android:onClick="ejecutaActivityCreaEvento"
+                            android:src="@drawable/ic_xnegra"
+                            android:text="Añadir\nEvento"
+                            android:textColor="@color/greenCalendar"
+                            android:textSize="12dp"
+                            android:visibility="visible"
+                            android:layout_marginRight="16dp"/>
+
+                        <Button
+                            android:id="@+id/prox_events2"
+                            android:layout_width="65dp"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@+id/add_events"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:backgroundTint="@color/grisFondo"
+                            android:text="Próximos\nEventos"
+                            android:textColor="@color/greenCalendar"
+                            android:textSize="12dp"
+                            android:visibility="visible"
+                            android:onClick="ejecutaActivityProximosEventos"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
