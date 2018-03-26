@@ -122,7 +122,7 @@ public class AlarmService extends Service {
 
 
                             Log.d(TAG, "Service execute. Datos: " + nombre + " -> " + fecha_ev +" "+ hora_ev);
-                            createTriggerNotification(nombre, hora_ev);
+                            createTriggerNotification(nombre, hora_ev, fecha_ev);
                         } while (fila.moveToNext());
                     }else{
                         Log.d(TAG, "Service execute. No hay coincidencias");
@@ -156,8 +156,8 @@ public class AlarmService extends Service {
 
 
 
-    public void createTriggerNotification(String title, String mensaje){
-        mNotificationHelper.getChannel1Notification(title, mensaje);
+    public void createTriggerNotification(String title, String mensaje, String fecha){
+        mNotificationHelper.getChannel1Notification(title, mensaje, fecha);
     }
 
 

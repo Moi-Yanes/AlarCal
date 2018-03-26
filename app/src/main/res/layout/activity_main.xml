@@ -64,7 +64,7 @@
             <CalendarView
                 android:id="@+id/calendario"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="340dp"
                 android:firstDayOfWeek="2"
                 android:theme="@style/Theme.AppCompat.Light"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"/>
+                    android:layout_alignParentTop="true" />
 
                 <Button
                     android:id="@+id/add_events"
@@ -108,7 +108,7 @@
                     android:layout_height="40dp"
                     android:layout_toStartOf="@+id/prox_events"
                     android:layout_alignTop="@+id/prox_events"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="0dp"
                     android:background="?android:attr/selectableItemBackground"
                     android:backgroundTint="@color/grisFondo"
                     android:src="@drawable/ic_xnegra"
@@ -140,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="16dp"
-                android:layout_marginTop="350dp"
+                android:layout_marginTop="390dp"
                 android:layout_marginBottom="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +175,7 @@
                             android:src="@drawable/ic_xnegra"
                             android:text="Añadir\nEvento"
                             android:textColor="@color/greenCalendar"
-                            android:textSize="12dp"
+                            android:textSize="11dp"
                             android:visibility="visible"
                             android:layout_marginRight="16dp"/>
 
@@ -189,7 +189,7 @@
                             android:backgroundTint="@color/grisFondo"
                             android:text="Próximos\nEventos"
                             android:textColor="@color/greenCalendar"
-                            android:textSize="12dp"
+                            android:textSize="11dp"
                             android:visibility="visible"
                             android:onClick="ejecutaActivityProximosEventos"/>
                     </LinearLayout>

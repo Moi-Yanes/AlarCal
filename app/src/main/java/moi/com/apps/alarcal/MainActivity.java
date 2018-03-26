@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -17,12 +18,16 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -53,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private String fecha_seleccionada;
 
     final BBDD helper = new BBDD(this);
-
-
+    int height;
 
     /*
     *   Metodos
@@ -63,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        height = Resources.getSystem().getDisplayMetrics().heightPixels;
 
         //Asociando variables con sus views
         cal                 = (CalendarView) findViewById(R.id.calendario);
@@ -100,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         //Dando formato al texto que muestra la fecha seleccionada por el usuario
         t_fecha_selec.setGravity(Gravity.CENTER);
         t_fecha_selec.setTextColor(Color.BLACK);
-        t_fecha_selec.setTextSize(20);
+        t_fecha_selec.setTextSize(18);
         t_fecha_selec.setPadding(30,5,0,0);
         t_fecha_selec.setBackgroundColor(Color.parseColor("#e0e0e0"));
 
@@ -300,15 +306,36 @@ public class MainActivity extends AppCompatActivity {
     * */
     public void estableceImagenScrollview(int imagen, int marginTop){
 
-        int tamscrollview = scrollview.getHeight();
-        int tamttextofecha = t_fecha_selec.getHeight();
-
         ImageView img = new ImageView(getApplicationContext());
         img.setImageResource(imagen);
-        int tam_img = img.getHeight();
-        img.setPadding(0, ((tamscrollview/2)-tamttextofecha-tam_img)+marginTop, 0, 0);
+
+        int tam_bar             = dpToPx(49);
+        int tam_calendar        = dpToPx(340);
+        int tam_layout_text     = dpToPx(50);
+        int tam_pxl_scrollview  = height - tam_bar - tam_calendar - tam_layout_text;
+        int dp_scrollview       = pxToDp(tam_pxl_scrollview);
+        int tamttextofecha      = pxToDp(t_fecha_selec.getHeight());
+        int tam_img             = pxToDp(img.getHeight());
+
+        if(add_eventos.getVisibility() == View.VISIBLE){
+            img.setPadding(0, ((dp_scrollview/2)-tamttextofecha-tam_img)+marginTop, 0, 0);
+        }
+        else{
+            img.setPadding(0, 0, 0, 0);
+        }
 
         grideventos.addView(img,0);
+    }
+
+
+
+    private int dpToPx(int dp) {
+        return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+
+    private int pxToDp(float px) {
+        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
 
 

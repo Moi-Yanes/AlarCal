@@ -76,7 +76,7 @@ public class NotificationHelper extends ContextWrapper {
 
 
 
-    public NotificationCompat.Builder getChannel1Notification(String title, String mesagge){
+    public NotificationCompat.Builder getChannel1Notification(String title, String mesagge, String fecha){
 
         value = value + 1;
         inboxStyle.setBigContentTitle("AlarCal");
@@ -86,6 +86,7 @@ public class NotificationHelper extends ContextWrapper {
         if(value == 1) {
             notifyIntent = new Intent(this, EditEvento.class);
             notifyIntent.putExtra("nombre", title);
+            notifyIntent.putExtra("fecha_evento", fecha);
         }
         else
             notifyIntent = new Intent(this, MainActivity.class);
