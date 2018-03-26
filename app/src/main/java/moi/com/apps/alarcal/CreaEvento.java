@@ -60,6 +60,7 @@ public class CreaEvento extends AppCompatActivity {
     final int minuto = c.get(Calendar.MINUTE);
 
     private String repeticion, record;
+    private String fecha_elegida;
 
 
     /************
@@ -500,6 +501,8 @@ public class CreaEvento extends AppCompatActivity {
     public void ejecutaActivityRepeticiones(View vista){
         Intent i = new Intent(this, Repeticiones.class);
         i.putExtra("Clase", "CreaEvento");
+        i.putExtra("Fecha_elegida", fecha_evento.getText().toString());
+
         startActivityForResult(i,200);
     }
 

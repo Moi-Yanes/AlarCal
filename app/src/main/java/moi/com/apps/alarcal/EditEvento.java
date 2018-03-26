@@ -621,6 +621,7 @@ public class EditEvento extends AppCompatActivity {
     public void ejecutaActivityRepeticiones(View vista){
         Intent i = new Intent(this, Repeticiones.class);
         i.putExtra("Clase", "EditEvento");
+        i.putExtra("Fecha_elegida", fecha_evento.getText().toString());
         startActivityForResult(i,200);
     }
 
@@ -653,13 +654,7 @@ public class EditEvento extends AppCompatActivity {
     public boolean validaNombre(){
 
         nombre = (EditText) findViewById(R.id.nombre_evento_edit);
-        String nombre_bbdd = null;
-        Cursor consulta = helper.consultaEventos(Estructura_BBDD.COLUMNA1, nombre.getText().toString(),"=", null, true, false);
-        if (consulta.moveToFirst()) {
-            nombre_bbdd = consulta.getString(0);
-        }
-
-        if( nombre.getText().toString().trim().isEmpty() || nombre_bbdd != null ){
+        if( nombre.getText().toString().trim().isEmpty() ){
             layout1.setErrorEnabled(true);
             layout1.setError("Campo vacío o nombre existente");
             nombre.requestFocus();

@@ -9,9 +9,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
+import java.util.Date;
 
 
 /**
@@ -20,20 +21,8 @@ import java.util.Calendar;
 
 public class Repeticiones extends AppCompatActivity {
 
-
-    //Calendario para obtener fecha & hora
-    final Calendar c = Calendar.getInstance();
-    final int dia = c.get(Calendar.DAY_OF_MONTH);
-
-    // Obtenemos la fecha actual pero con nombres largos no solo en numeros
-    SimpleDateFormat sdf = new SimpleDateFormat("EEEE/dd/MMMM/yyyy");
-    String[] fecha_format = sdf.format(c.getTime()).split("/");
-    String dia_selec = fecha_format[0].substring(0, 1).toUpperCase() + fecha_format[0].substring(1);
-    String mes_selec = fecha_format[2].substring(0, 1).toUpperCase() + fecha_format[2].substring(1);
-
-
     //Nombre de la clase desde la cual se llama a esta actividad
-    String clase;
+    String clase, fecha_elegida;
 
 
 
@@ -48,6 +37,28 @@ public class Repeticiones extends AppCompatActivity {
 
         Intent intent = getIntent();
         clase = intent.getStringExtra("Clase");
+        fecha_elegida = intent.getStringExtra("Fecha_elegida");
+
+        //Calendario para obtener fecha & hora
+        SimpleDateFormat sdf        = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
+        SimpleDateFormat day_date   = new SimpleDateFormat("EEEE");
+        final Calendar c = Calendar.getInstance();
+        int dia = 0;
+        String mes_name = null, dia_name = null;
+
+        try {
+            Date fecha = sdf.parse(fecha_elegida);
+            c.setTime(fecha);
+
+            dia        = Integer.parseInt(sdf.format(fecha).split("/")[0]);
+            mes_name   = month_date.format(fecha).substring(0, 1).toUpperCase() + month_date.format(fecha).substring(1);
+            dia_name   = day_date.format(fecha).substring(0, 1).toUpperCase() + day_date.format(fecha).substring(1);
+
+            Log.d("TAG", "Dia: "+ dia + " dia_selec: "+ dia_name + " mes_selec: "+ mes_name);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 
         //Establecemos los textos respecto al dia de hoy en los textview de las opciones
@@ -55,13 +66,13 @@ public class Repeticiones extends AppCompatActivity {
         tv_mensual.setText("Mensualmente (cada " + dia + " de mes)");
 
         TextView tv_semanal = (TextView) findViewById(R.id.textview_radio_button4);
-        tv_semanal.setText("Semanalmente (cada " + dia_selec + ")");
+        tv_semanal.setText("Semanalmente (cada " + dia_name + ")");
 
         TextView tv_2semanal = (TextView) findViewById(R.id.textview_radio_button7);
-        tv_2semanal.setText("Cada dos semanas (cada " + dia_selec + ")");
+        tv_2semanal.setText("Cada dos semanas (cada " + dia_name + ")");
 
         TextView tv_anual = (TextView) findViewById(R.id.textview_radio_button6);
-        tv_anual.setText("Anualmente (cada " + dia + " de " + mes_selec + ")");
+        tv_anual.setText("Anualmente (cada " + dia + " de " + mes_name + ")");
 
 
         //Hacer que los botones funcionen como un grupo de botones
